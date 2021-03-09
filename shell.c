@@ -5,17 +5,19 @@
 */
 int shellFind(char **args)
 {
-
-  printf("shellFind is called!\n");
-
+  printf("Token is: %s \n", args[1]);
+  int success = execvp("/mnt/c/Users/tanka/Desktop/CSE/Ass_1/ProgrammingAssignment1/PA1/shellPrograms/find", args);
+  if (success < 0)
+  {
+    printf("Find failed to execute execvp \n");
+    return 1;
+  }
   /** TASK 4 **/
   // 1. Execute the binary program 'find' in shellPrograms using execvp system call
   // 2. Check if execvp is successful by checking its return value
   // 3. A successful execvp never returns, while a failed execvp returns -1
   // 4. Print some kind of error message if it returns -1
   // 5. return 1 to the caller of shellFind if execvp fails to allow loop to continue
-
-  return 1;
 }
 
 /**
@@ -23,7 +25,13 @@ int shellFind(char **args)
  */
 int shellDisplayFile(char **args)
 {
-  printf("shellDisplayFile is called!\n");
+  printf("Token is: %s \n", args[1]);
+  int success = execvp("/mnt/c/Users/tanka/Desktop/CSE/Ass_1/ProgrammingAssignment1/PA1/shellPrograms/display", args);
+  if (success < 0)
+  {
+    printf("DisplayFile failed to execute execvp \n");
+    return 1;
+  }
 
   /** TASK 4 **/
   // 1. Execute the binary program 'display' in shellPrograms using execvp system call
@@ -31,8 +39,6 @@ int shellDisplayFile(char **args)
   // 3. A successful execvp never returns, while a failed execvp returns -1
   // 4. Print some kind of error message if it returns -1
   // 5. return 1 to the caller of shellDisplayFile if execvp fails to allow loop to continue
-
-  return 1;
 }
 
 /*
@@ -40,8 +46,12 @@ int shellDisplayFile(char **args)
 */
 int shellListDirAll(char **args)
 {
-
-  printf("shellListDirAll is called!\n");
+  int success = execvp("/mnt/c/Users/tanka/Desktop/CSE/Ass_1/ProgrammingAssignment1/PA1/shellPrograms/listdirall", args);
+  if (success < 0)
+  {
+    printf("ListDirAll failed to execute execvp \n");
+    return 1;
+  }
 
   /** TASK 4 **/
   // 1. Execute the binary program 'listdirall' in shellPrograms using execvp system call
@@ -49,8 +59,6 @@ int shellListDirAll(char **args)
   // 3. A successful execvp never returns, while a failed execvp returns -1
   // 4. Print some kind of error message if it returns -1
   // 5. return 1 to the caller of shellListDirAll if execvp fails to allow loop to continue
-
-  return 1;
 }
 
 /*
@@ -58,7 +66,12 @@ int shellListDirAll(char **args)
 */
 int shellListDir(char **args)
 {
-  printf("shellListDir is called!\n");
+  int success = execvp("/mnt/c/Users/tanka/Desktop/CSE/Ass_1/ProgrammingAssignment1/PA1/shellPrograms/listdir", args);
+  if (success < 0)
+  {
+    printf("ListDir failed to execute execvp \n");
+    return 1;
+  }
 
   /** TASK 4 **/
   // 1. Execute the binary program 'listdir' in shellPrograms using execvp system call
@@ -66,8 +79,6 @@ int shellListDir(char **args)
   // 3. A successful execvp never returns, while a failed execvp returns -1
   // 4. Print some kind of error message if it returns -1
   // 5. return 1 to the caller of shellListDir
-
-  return 1;
 }
 
 /**
@@ -76,7 +87,13 @@ int shellListDir(char **args)
 **/
 int shellCountLine(char **args)
 {
-  printf("shellCountLine is called!\n");
+  printf("Token is: %s \n", args[1]);
+  int success = execvp("/mnt/c/Users/tanka/Desktop/CSE/Ass_1/ProgrammingAssignment1/PA1/shellPrograms/countline", args);
+  if (success < 0)
+  {
+    printf("CountLine failed to execute execvp \n");
+    return 1;
+  }
 
   /** TASK 4 **/
   // 1. Execute the binary program 'countline' in shellPrograms using execvp system call
@@ -84,8 +101,6 @@ int shellCountLine(char **args)
   // 3. A successful execvp never returns, while a failed execvp returns -1
   // 4. Print some kind of error message if it returns -1
   // 5. return 1 to the caller of shellCountLine if execvp fails to allow loop to continue
-
-  return 1;
 }
 
 /**
@@ -93,7 +108,12 @@ int shellCountLine(char **args)
  */
 int shellSummond(char **args)
 {
-  printf("shellDaemonize is called!\n");
+  int success = execvp("/mnt/c/Users/tanka/Desktop/CSE/Ass_1/ProgrammingAssignment1/PA1/shellPrograms/summond", args);
+  if (success < 0)
+  {
+    printf("Summond failed to execute execvp \n");
+    return 1;
+  }
 
   /** TASK 4 **/
   // 1. Execute the binary program 'summond' in shellPrograms using execvp system call
@@ -101,8 +121,6 @@ int shellSummond(char **args)
   // 3. A successful execvp never returns, while a failed execvp returns -1
   // 4. Print some kind of error message if it returns -1
   // 5. return 1 to the caller of shellDaemonize if execvp fails to allow loop to continue
-
-  return 1;
 }
 
 /**
@@ -111,7 +129,12 @@ int shellSummond(char **args)
  */
 int shellCheckDaemon(char **args)
 {
-  printf("shellCheckDaemon is called!\n");
+  int success = execvp("/mnt/c/Users/tanka/Desktop/CSE/Ass_1/ProgrammingAssignment1/PA1/shellPrograms/checkdaemon", args);
+  if (success < 0)
+  {
+    printf("CheckDaemon failed to execute execvp \n");
+    return 1;
+  }
 
   /** TASK 4 **/
   // 1. Execute the binary program 'checkdaemon' in shellPrograms using execvp system call
@@ -179,6 +202,11 @@ int shellExit(char **args)
 */
 int shellUsage(char **args)
 {
+  if (args[1] == NULL)
+  {
+    printf("Please type a shell command after \'usage\' \n");
+    return 1;
+  }
   int functionIndex = -1;
 
   // Check if the commands exist in the command list
@@ -244,6 +272,65 @@ int shellUsage(char **args)
  */
 int shellExecuteInput(char **args)
 {
+  if (args[0] == NULL)
+    return 1;
+
+  else
+  {
+    for (int i = 0; i < numOfBuiltinFunctions(); i++)
+    {
+      int checkEqual = strcmp(builtin_commands[i], args[0]);
+      if (strcmp(builtin_commands[i], args[0]) == 0)
+      {
+        if (i > 3)
+        {
+          {
+            pid_t pid;
+
+            pid = fork();
+
+            if (pid < 0)
+            {
+              fprintf(stderr, "Fork has failed. Exiting now");
+              return 1;
+            }
+            else if (pid == 0) //child
+            {
+              return builtin_commandFunc[i](args);
+            }
+            else //parent
+            {
+              int child_status;
+              int exit_status = -1;
+              printf("Fork works, waiting for child \n");
+              pid_t child_pid = waitpid(pid, &child_status, WUNTRACED);
+              //if child terminates properly, WIFEXITED(status) returns TRUE
+              if (WIFEXITED(child_status))
+              {
+                exit_status = WEXITSTATUS(child_status);
+              }
+              if (exit_status == -1)
+              {
+                printf("Child did not terminate properly \n");
+              }
+              else if (exit_status != 1)
+              {
+                printf("System error \n");
+              }
+            }
+            return 1;
+          }
+        }
+        else
+        {
+          return builtin_commandFunc[i](args);
+        }
+      }
+    }
+    printf("Invalid command received. Type help to see what commands are implemented. \n");
+  }
+  return 1;
+
   /** TASK 3 **/
 
   // 1. Check if args[0] is NULL. If it is, an empty command is entered, return 1
@@ -253,8 +340,6 @@ int shellExecuteInput(char **args)
   // 5. For the parent process, wait for the child process to complete and fetch the child's return value.
   // 6. Return the child's return value to the caller of shellExecuteInput
   // 7. If args[0] is not in builtin_command, print out an error message to tell the user that command doesn't exist and return 1
-
-  return 1;
 }
 
 /**
@@ -276,6 +361,7 @@ char *shellReadLine(void)
   {
     getline(&buffer, &size, stdin);
   }
+  buffer[strlen(buffer) - 1] = 0;
   return buffer;
 }
 
@@ -318,10 +404,20 @@ char **shellTokenizeInput(char *line)
 void shellLoop(void)
 {
   //instantiate local variables
-  char *line;  // to accept the line of string from user
-  char **args; // to tokenize them as arguments separated by spaces
-  int status;  // to tell the shell program whether to terminate shell or not
+  char *line;     // to accept the line of string from user
+  char **args;    // to tokenize them as arguments separated by spaces
+  int status = 1; // to tell the shell program whether to terminate shell or not
 
+  while (status == 1)
+  {
+    printf("CSEShell> ");
+    line = shellReadLine();
+    args = shellTokenizeInput(line);
+    status = shellExecuteInput(args);
+    free(line);
+    free(args);
+  }
+  exit(0);
   /** TASK 5 **/
   //write a loop where you do the following:
 
@@ -339,23 +435,9 @@ void shellLoop(void)
 int main(int argc, char **argv)
 {
 
-  printf("Shell Run successful. Running now: \n ");
+  printf("Shell Run successful. Running now: \n");
 
-  // Task 2
-  char *line = shellReadLine();
-  printf("The fetched line is : %s \n ", line);
-  char **args = shellTokenizeInput(line);
-  printf("The first token is %s \n ", args[0]);
-  printf("The second token is %s \n ", args[1]);
+  // Run command loop
+  shellLoop();
   return 0;
-
-// Task 1
-// char *line = shellReadLine();
-// printf("The fetched line is : %s \n ", line);
-// return 0;
-
-// // Run command loop
-// shellLoop();
-
-// return 0;
 }

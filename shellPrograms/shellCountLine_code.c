@@ -5,6 +5,43 @@ Count the number of lines in a file
 */
 int shellCountLine_code(char **args)
 {
+    FILE *fp;
+    char *line_buffer = 0;
+    size_t size = 0;
+    int lineExist;
+    int line_count = 0;
+
+    if (args[1] != NULL)
+    {
+        fp = fopen(args[1], "r");
+        printf("file opeend \n");
+    }
+    else
+    {
+        printf("Please supply a file name\n");
+        return 1;
+    }
+
+    if (!fp)
+    {
+        printf("CSEShell: File doesn't exist.\n");
+        return 1;
+    }
+
+    while (1)
+    {
+        lineExist = getline(&line_buffer, &size, fp);
+        // printf(lineExist);
+        free(line_buffer);
+        line_buffer = NULL;
+        if (lineExist == -1)
+        {
+            break;
+        }
+        line_count++;
+    }
+    fclose(fp);
+    printf("There are %d lines in %s\n", line_count, args[1]);
 
     /** TASK 6  **/
     // ATTENTION: you need to implement this function from scratch and not to utilize other system program to do this
